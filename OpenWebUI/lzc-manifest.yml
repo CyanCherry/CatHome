@@ -1,0 +1,19 @@
+lzc-sdk-version: 0.1
+name: OpenWebUI
+package: cloud.lazycat.app.open-webui
+version: 0.0.0
+description:
+license: https://choosealicense.com/licenses/mit/
+homepage:
+author:
+application:
+  subdomain: open-webui
+  routes:
+    - /=http://open-webui.cloud.lazycat.app.open-webui.lzcapp:8080
+services:
+  open-webui:
+    image: docker-registry-ui.cyanogen.heiyu.space/open-webui/open-webui:main
+    binds:
+      - /lzcapp/var/backend/data:/app/backend/data
+    environment:
+      - WEBUI_AUTH=False
